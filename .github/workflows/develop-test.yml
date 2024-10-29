@@ -5,13 +5,17 @@ on:
     types: [ opened, synchronize, reopened ]
     branches: [ develop ]
 
+concurrency:
+  group: ci-dev-test-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  run-tests:
+  dev-test:
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Docker
         uses: docker/setup-buildx-action@v2
