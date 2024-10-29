@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install FastAPI, Uvicorn, and Pytest for testing
-RUN pip install fastapi uvicorn pytest
+RUN pip install fastapi uvicorn httpx pytest
 
 # Expose port 8000 for the FastAPI app
 EXPOSE 8090
