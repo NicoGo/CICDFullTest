@@ -26,4 +26,4 @@ jobs:
 
       - name: Run tests in Docker
         run: |
-          docker run --rm my-python-app python -m pytest discover -s tests/
+          docker run --rm my-python-app python -m pytest tests/
