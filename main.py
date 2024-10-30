@@ -4,4 +4,4 @@ app = FastAPI()
 
 @app.get("/hello")
 async def hello():
-    return {"message": "Hello, w orld now with some new return !"}
+    return {"message": "Hello, w orld now two with some new return !"}
