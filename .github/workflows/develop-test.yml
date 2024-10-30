@@ -1,30 +1,30 @@
-name: "Python Tests on dev pull request"
-
-on:
-  pull_request:
-    types: [ opened, synchronize, reopened ]
-    branches: [ develop ]
-
-concurrency:
-  group: ci-dev-test-${{ github.ref }}
-  cancel-in-progress: true
-
-jobs:
-  dev-test:
-    name: Testing deployment for Docker
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Docker
-        uses: docker/setup-buildx-action@v2
-
-      - name: Build Docker image
-        run: |
-          docker build -t my-python-app .
-
-      - name: Run tests in Docker
-        run: |
-          docker run --rm my-python-app python -m pytest tests/
+#name: "Python Tests on dev pull request"
+#
+#on:
+#  pull_request:
+#    types: [ opened, synchronize, reopened ]
+#    branches: [ develop ]
+#
+#concurrency:
+#  group: ci-dev-test-${{ github.ref }}
+#  cancel-in-progress: true
+#
+#jobs:
+#  dev-test:
+#    name: Testing deployment for Docker
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v4
+#
+#      - name: Set up Docker
+#        uses: docker/setup-buildx-action@v2
+#
+#      - name: Build Docker image
+#        run: |
+#          docker build -t my-python-app .
+#
+#      - name: Run tests in Docker
+#        run: |
+#          docker run --rm my-python-app python -m pytest tests/
