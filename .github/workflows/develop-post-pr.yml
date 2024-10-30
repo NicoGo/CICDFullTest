@@ -1,15 +1,13 @@
 name: Post pull request dev
 
 on:
-  pull_request:
-    types: [ closed ]
-    branches: [ develop ]
-
+  push:
+    branches:
+      - develop
 env:
-  DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKERHUB_KEY: ${{ secrets.DOCKER_KEY }}
   IMAGE_NAME: api-fast
-
 concurrency:
   group: ci-deploy-dev-${{ github.ref }}
   cancel-in-progress: true
