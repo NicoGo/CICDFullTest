@@ -1,4 +1,4 @@
-name: Python Tests on dev pull request
+name: "Python Tests on dev pull request"
 
 on:
   pull_request:
@@ -11,6 +11,7 @@ concurrency:
 
 jobs:
   dev-test:
+    name: Testing deployment for Docker
     runs-on: ubuntu-latest
     
     steps:
